@@ -139,7 +139,6 @@ namespace Volcanit.Npcs
 	if (npc.life <= 3000)
             {
                 spriteBatch.Draw(mod.GetTexture("Npcs/JafssTrueForm"), npc.Center - Main.screenPosition, new Rectangle?(), drawColor, npc.rotation, origin, npc.scale, SpriteEffects.None, 0);
-		}
             }
             return false;
 		}
