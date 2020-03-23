@@ -1,0 +1,3 @@
+displayName = Volcanit
+author = DasJafss, DeathSquid, and Craftolizer
+version = 2.3

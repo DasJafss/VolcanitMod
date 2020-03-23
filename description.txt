@@ -1,0 +1,32 @@
+Volcanit is a mod, which just adds stuff, if you are mildly bored, it's worth your time.
+
+2.3 Changelog:
++ Added a Fiaryite Hammer
++ Made some stuff that was previously unobtainable obtainable.
++ Finally got around to adding the icon.
++ A couple new weapons
+~ Fixed bug with Volcanic Mimic drops
+~ Changed color of Sandscale to match Dune Eater
+~ Fixed rarities for items.
+~ Fixed Golden Halberd Wand
+~ Changed some recipes
+~ Upgraded Inferno Sword
+
+2.2.1 Changelog:
++ Added recipe I forgot in 2.2
+
+2.2 Changelog:
++ Volcanite (Ore)
++ Scarlet (Ore)
++ Cursed (Ore)
++ Twilite (Ore)
++ Fiaryite (Ore)
++ Volcanic Mimic (Monster)
++ New drops for Helliane Fleshling
++ A few new cards
+~ Some textures redone
+~ Eye of Jafss Revamp
+
+2.1 Changelog:
++ Nova (Boss)
+~ Suspicious Looking Telescope is purchased from the Mechanic.
