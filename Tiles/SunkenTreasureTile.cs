@@ -34,18 +34,17 @@ namespace Volcanit.Tiles
 			TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Sunken Treasure");
-			AddMapEntry(new Color(200, 200, 200), name);
+			AddMapEntry(new Color(200, 100, 0), name);
 			dustType = 38;
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
 			chest = "Sunken Treasure";
-			drop = mod.ItemType("SunkenTreasure");
 		}
 
 		public override bool HasSmartInteract() => true;
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-			Item.NewItem(i * 16, j * 16, 32, 32, drop);
+			Item.NewItem(i * 16, j * 16, 32, 32, ItemType<Items.SunkenTreasure>());
 			Chest.DestroyChest(i, j);
 		}
 
@@ -115,12 +114,13 @@ namespace Volcanit.Tiles
 				player.showItemIconText = Language.GetTextValue("LegacyChestType.0");
 			}
 			else {
-				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Sunken Treasure";
+				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "";
 				if (player.showItemIconText == "Sunken Treasure") {
 					player.showItemIcon2 = ItemType<Items.SunkenTreasure>();
 				}
 			}
 			player.noThrow = 2;
+			player.showItemIcon2 = ItemType<Items.SunkenTreasure>();
 			player.showItemIcon = true;
 		}
 	}
