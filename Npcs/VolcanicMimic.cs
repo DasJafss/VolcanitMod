@@ -38,7 +38,7 @@ namespace Volcanit.Npcs
 				if (Main.rand.Next(2) == 0)
 					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.HeartSeekerEdge>());
 				if (Main.rand.Next(2) == 0)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.HeartSeekerEdge>());
+					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.DragonicChainblade>());
 				Item.NewItem(npc.getRect(), ModContent.ItemType<Items.VolcanishBrew>(), Main.rand.Next(3, 10));
 			}
 		}

@@ -112,6 +112,13 @@ namespace Volcanit.Npcs
 				music = MusicID.OldOnesArmy;
 				npc.aiStyle = 5;
 				npc.noGravity = true;
+				if(!hasShed) {
+					Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/EyeOfJafssShed"), npc.scale);
+					hasShed = true;
+				}
+			}
+			if(npc.life <= 0) {
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/EyeOfJafss1"), npc.scale);
 			}
 		}
 		public override void BossLoot(ref string name, ref int potionType)
@@ -123,8 +130,6 @@ namespace Volcanit.Npcs
 			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Armor.MaskOfJafss>());
 		if (Main.rand.Next(2) == 0)
 			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.HeroSword>());
-		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.NiceLookingGlasses>());
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{

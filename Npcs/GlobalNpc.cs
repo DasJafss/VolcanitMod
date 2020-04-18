@@ -44,6 +44,10 @@ namespace Volcanit.Npcs
             {
                 Item.NewItem(npc.getRect(), ModContent.ItemType<Items.SuspiciousLookingGlasses>());
             }
+	    if (npc.type == 266)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<Items.BrainBlockItem>(), Main.rand.Next(20, 40));
+            }
         }
     }
 }

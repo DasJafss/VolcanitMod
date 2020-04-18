@@ -1,5 +1,13 @@
 Volcanit is a mod, which just adds stuff, if you are mildly bored, it's worth your time.
 
+2.4 Changelog:
++ Sunken Treasure! A new piece of loot found in Hardmode Oceans!
++ Riptide, Nautilus Slicer, and Pickanch, found in Sunken Treasure.
+~ Fixed a bug with Volcanic Mimic drops
+~ Added gores to EoJ, upgraded functionality of Suspicious Looking Glasses
+~ Changed cheese texture
+~ Changed gores of Dune Eater Gores
+
 2.3 Changelog:
 + Added a Fiaryite Hammer
 + Made some stuff that was previously unobtainable obtainable.
@@ -14,19 +22,3 @@ Volcanit is a mod, which just adds stuff, if you are mildly bored, it's worth yo
 
 2.2.1 Changelog:
 + Added recipe I forgot in 2.2
-
-2.2 Changelog:
-+ Volcanite (Ore)
-+ Scarlet (Ore)
-+ Cursed (Ore)
-+ Twilite (Ore)
-+ Fiaryite (Ore)
-+ Volcanic Mimic (Monster)
-+ New drops for Helliane Fleshling
-+ A few new cards
-~ Some textures redone
-~ Eye of Jafss Revamp
-
-2.1 Changelog:
-+ Nova (Boss)
-~ Suspicious Looking Telescope is purchased from the Mechanic.
