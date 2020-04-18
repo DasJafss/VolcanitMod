@@ -28,13 +28,13 @@ namespace Volcanit
 		public static bool wofAlive;
 		public static bool wofDead;
 		public override void PostUpdate() {
-		if(NPC.AnyNPCs(113)) {
+		if(!Main.hardMode) {
 			wofAlive = true;
 		}
 		if(NPC.AnyNPCs(398)) {
 			moonlordAlive = true;
 		}
-		if(wofAlive && !NPC.AnyNPCs(113)) {
+		if(wofAlive && Main.hardMode) {
 			wofAlive = false;
 			wofDead = true;
 		}
