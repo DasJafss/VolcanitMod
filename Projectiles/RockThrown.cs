@@ -14,6 +14,8 @@ namespace Volcanit.Projectiles
 		public override void SetDefaults() {
 			projectile.CloneDefaults(3);
 			aiType = 3;
+			projectile.width = 30;
+			projectile.height = 24;
 		}
 	}
 }
