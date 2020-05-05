@@ -19,7 +19,7 @@ namespace Volcanit.Projectiles
 			projectile.friendly = true;
 			projectile.width = 124;
 			projectile.height = 96;
-			projectile.timeLeft = 1200;
+			projectile.timeLeft = 200;
 			projectile.penetrate = 10000;
 			projectile.maxPenetrate = 10000;
 		}
