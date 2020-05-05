@@ -31,6 +31,9 @@ namespace Volcanit.Npcs
 			npc.noTileCollide = true;
 			music = MusicID.Boss1;
 			npc.netAlways = true;
+            		npc.HitSound = SoundID.NPCHit1;
+            		npc.DeathSound = SoundID.NPCDeath1;
+			npc.value = Item.buyPrice(0, Main.rand.Next(9, 10), 0, 0);
 			}
 		int Timer = 0;
 		int Timer2 = 0;
@@ -119,6 +122,7 @@ namespace Volcanit.Npcs
 			}
 			if(npc.life <= 0) {
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/EyeOfJafss1"), npc.scale);
+				VolcanitWorld.downedEOJ = true;
 			}
 		}
 		public override void BossLoot(ref string name, ref int potionType)

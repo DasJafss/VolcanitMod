@@ -15,8 +15,8 @@ namespace Volcanit.Npcs
 	}
         public override void SetDefaults()
         {
-            npc.width = 62;     //this is where you put the npc sprite width.     important
-            npc.height = 92;      //this is where you put the npc sprite height.   important
+            npc.width = 62;
+            npc.height = 92;
             npc.damage = 75;
             npc.defense = 17;
             npc.lifeMax = 9001;
@@ -32,6 +32,7 @@ namespace Volcanit.Npcs
 	public override void HitEffect(int hitDirection, double damage) {
 			if (npc.life <= 0) {
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/HellianeFleshlingTail"), npc.scale);
+				VolcanitWorld.downedHelliane = true;
 			}
 		}
  

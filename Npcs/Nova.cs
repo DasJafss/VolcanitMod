@@ -87,6 +87,7 @@ namespace Volcanit.Npcs
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/SmallStarGore"), npc.scale);
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/SmallStarGore"), npc.scale);
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/SmallStarGore"), npc.scale);
+				VolcanitWorld.downedNova = true;
 			}
 		}
 public override void BossLoot(ref string name, ref int potionType)
