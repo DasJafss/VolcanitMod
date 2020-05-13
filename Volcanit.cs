@@ -16,7 +16,7 @@ namespace Volcanit
             Mod bossChecklist = ModLoader.GetMod("BossChecklist");
 			if(bossChecklist != null)
            	{
-            	bossChecklist.Call(
+            			bossChecklist.Call(
 					"AddBoss",
 					5.5f,
 					ModContent.NPCType<Npcs.Nova>(),
@@ -72,6 +72,20 @@ namespace Volcanit
 					"Dune Eater has eaten the sand!",
 					"Volcanit/Npcs/Sandtron_Checklist",
 					"Volcanit/Npcs/Sandtron_Head_Boss");
+				bossChecklist.Call(
+					"AddBoss",
+					10.5f,
+					ModContent.NPCType<Npcs.Nimboss>(),
+					this,
+					"King Cloud",
+					(Func<bool>)(() => VolcanitWorld.downedCloud),
+					ModContent.ItemType<Items.SuspiciousLookingTelescope>(),
+					0,
+					ModContent.ItemType<Items.NimbossScepter>(),
+					"Break a Suspicious Cloud, which fall randomly after Golem is defeated.",
+					"King Cloud is flying out!",
+					"Volcanit/Npcs/Nimboss",
+					"Volcanit/Npcs/Nimboss_Head_Boss");
 			}
         }
 	}

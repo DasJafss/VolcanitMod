@@ -31,6 +31,7 @@ namespace Volcanit
 		public static bool downedEOJ;
 		public static bool downedHelliane;
 		public static bool downedSandtron;
+		public static bool downedCloud;
 		public static bool madeSunkenTreasure;
 
 		public override void Initialize() {
@@ -38,12 +39,17 @@ namespace Volcanit
 			downedEOJ = false;
 			downedHelliane = false;
 			downedSandtron = false;
+			downedCloud = false;
 			madeSunkenTreasure = false;
 		}
 		public override TagCompound Save() {
 			var tags = new List<string>();
 			if (downedNova) {
 				tags.Add("nova");
+			}
+
+			if (downedCloud) {
+				tags.Add("nimboss");
 			}
 
 			if (downedEOJ) {
@@ -73,6 +79,7 @@ namespace Volcanit
 			downedEOJ = tags.Contains("eoj");
 			downedHelliane = tags.Contains("helliane");
 			downedSandtron = tags.Contains("sandtron");
+			downedCloud = tags.Contains("nimboss");
 			madeSunkenTreasure = tags.Contains("sunkentreasure");
 		}
 		public override void NetSend(BinaryWriter writer) {
@@ -82,6 +89,7 @@ namespace Volcanit
 			flags[2] = downedHelliane;
 			flags[3] = downedSandtron;
 			flags[4] = madeSunkenTreasure;
+			flags[5] = downedCloud;
 			writer.Write(flags);
 		}
 		public override void NetReceive(BinaryReader reader) {
@@ -91,6 +99,7 @@ namespace Volcanit
 			downedSandtron = flags[3];
 			downedHelliane = flags[2];
 			madeSunkenTreasure = flags[4];
+			downedCloud = flags[5];
 		}
 		public override void PostUpdate() {
 		if(!Main.hardMode && !madeSunkenTreasure) {
@@ -223,13 +232,27 @@ namespace Volcanit
 			Main.NewText("The crystals are starting their new growth.",100,0,255);
 			planteraDead = false;
 		}
+		if(NPC.downedGolemBoss && Main.rand.Next(40000)==0){
+			int ymodifier = 0;
+			int xmodifier = Main.rand.Next(Main.maxTilesX);
+			bool landed = false;
+			for (ymodifier = 0; ymodifier < Main.maxTilesY - 1; ymodifier++) {
+						if(Main.tile[xmodifier, ymodifier + 1].active() && !landed) {
+						WorldGen.PlaceObject(xmodifier, ymodifier, TileType<SpecialCloud>(), false, 0);
+						landed = true;
+						Main.NewText("A cloud has fallen!",200,200,200);
+			}
+		}
+		}
 		}
 		public override void PostWorldGen() {
 			int toAdd = ModContent.ItemType<Items.SwordOfTheOcean>();
 			int toAdd2 = ModContent.ItemType<Items.SwordOfTheJungle>();
+			int toAdd3 = ModContent.ItemType<Items.SwordOfTheTundra>();
+			int toAdd4 = ModContent.ItemType<Items.SwordOfTheDesert>();
 			for (int chestIndex = 0; chestIndex < 1000; chestIndex++) {
 				Chest chest = Main.chest[chestIndex];
-				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 17 * 36) {
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 17 * 36 && Main.rand.Next(3)==0) {
 					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
 						if (chest.item[inventoryIndex].type == 0) {
 							chest.item[inventoryIndex].SetDefaults(toAdd);
@@ -237,10 +260,26 @@ namespace Volcanit
 						}
 					}
 				}
-				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 10 * 36) {
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 10 * 36 && Main.rand.Next(3)==0) {
 					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
 						if (chest.item[inventoryIndex].type == 0) {
 							chest.item[inventoryIndex].SetDefaults(toAdd2);
+							break;
+						}
+					}
+				}
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 11 * 36 && Main.rand.Next(3)==0) {
+					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
+						if (chest.item[inventoryIndex].type == 0) {
+							chest.item[inventoryIndex].SetDefaults(toAdd3);
+							break;
+						}
+					}
+				}
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 1 * 36 && Main.rand.Next(3)==0) {
+					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
+						if (chest.item[inventoryIndex].type == 0 && Main.tile[chest.x, chest.y].wall == 187) {
+							chest.item[inventoryIndex].SetDefaults(toAdd4);
 							break;
 						}
 					}
