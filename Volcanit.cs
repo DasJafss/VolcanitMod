@@ -79,7 +79,7 @@ namespace Volcanit
 					this,
 					"King Cloud",
 					(Func<bool>)(() => VolcanitWorld.downedCloud),
-					ModContent.ItemType<Items.SuspiciousLookingTelescope>(),
+					0,
 					0,
 					ModContent.ItemType<Items.NimbossScepter>(),
 					"Break a Suspicious Cloud, which fall randomly after Golem is defeated.",
