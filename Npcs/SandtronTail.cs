@@ -34,6 +34,7 @@ namespace Volcanit.Npcs
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Sandtron2"), npc.scale);
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Sandtron3"), npc.scale);
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Sandtron4"), npc.scale);
+				VolcanitWorld.downedSandtron = true;
 			}
 		}
 	

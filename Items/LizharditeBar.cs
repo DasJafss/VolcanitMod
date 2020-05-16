@@ -8,7 +8,7 @@ namespace Volcanit.Items
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Lizhardite Bar");
+			DisplayName.SetDefault("Lihzahrdite Bar");
 		}
 
 		public override void SetDefaults() 

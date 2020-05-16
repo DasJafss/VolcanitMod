@@ -11,56 +11,32 @@ using Terraria.ModLoader;
  
 namespace Volcanit.Npcs
 {
-	[AutoloadBossHead]
-    public class Sandtron : ModNPC
+    public class BeetleHead : ModNPC
     {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dune Eater");
+		DisplayName.SetDefault("Beetle Crusher");
 	}
         public override void SetDefaults()
         {
-            npc.lifeMax = 15000;
-            npc.damage = 100;
-            npc.defense = 20;
+            npc.lifeMax = 750;
+            npc.damage = 50;
+            npc.defense = 5;
             npc.knockBackResist = 0f;
-            npc.width = 52; //this is where you put the npc sprite width.     important
-            npc.height = 64; //this is where you put the npc sprite height.   important
-            npc.boss = true;
+            npc.width = 80;
+            npc.height = 74;
             npc.lavaImmune = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.HitSound = SoundID.NPCHit1;
             npc.DeathSound = SoundID.NPCDeath1;
-            npc.behindTiles = true;          
+            npc.behindTiles = true;
             Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 0, 2, 10);
             npc.npcSlots = 1f;
             npc.netAlways = true;
         }
-		
-		public override void BossLoot(ref string name, ref int potionType)
-		{
-		potionType = ItemID.HealingPotion;
-		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Armor.SandtronMask>());
-		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.EnchantedKnives>());
-		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.EnchantedKatana>());
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.SleepPowder>(), Main.rand.Next(30, 35));
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.SandScale>(), Main.rand.Next(10, 15));
-		}
- 	public override void HitEffect(int hitDirection, double damage) {
-			if (npc.life <= 0) {
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Sandtron1"), npc.scale);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Sandtron2"), npc.scale);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Sandtron3"), npc.scale);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Sandtron4"), npc.scale);
-				VolcanitWorld.downedSandtron = true;
-			}
-		}
-	
+
         public override bool PreAI()
         {
             if (Main.netMode != 1)
@@ -69,17 +45,14 @@ namespace Volcanit.Npcs
                 {
                     npc.realLife = npc.whoAmI;
                     int latestNPC = npc.whoAmI;
- 
-                    // Here we determine the length of the worm.
-                    // In this case the worm will have a length of 10 to 14 body parts.
-                    int randomWormLength = Main.rand.Next(10, 10);
+                    int randomWormLength = Main.rand.Next(10, 13);
                     for (int i = 0; i < randomWormLength; ++i)
                     {
-                        latestNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("SandtronMiddle"), npc.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BeetleMid"), npc.whoAmI, 0, latestNPC);
                         Main.npc[(int)latestNPC].realLife = npc.whoAmI;
                         Main.npc[(int)latestNPC].ai[3] = npc.whoAmI;
                     }
-                    latestNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("SandtronTail"), npc.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BeetleTail"), npc.whoAmI, 0, latestNPC);
                     Main.npc[(int)latestNPC].realLife = npc.whoAmI;
                     Main.npc[(int)latestNPC].ai[3] = npc.whoAmI;
  
@@ -102,7 +75,6 @@ namespace Volcanit.Npcs
                 maxTilePosY = Main.maxTilesY;
  
             bool collision = false;
-            // This is the initial check for collision with tiles.
             for (int i = minTilePosX; i < maxTilePosX; ++i)
             {
                 for (int j = minTilePosY; j < maxTilePosY; ++j)
@@ -277,7 +249,7 @@ namespace Volcanit.Npcs
  
             return false;
         }
- 
+ 	private const int Sphere = 50;
         public override bool PreDraw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, Color drawColor)
         {
             Texture2D texture = Main.npcTexture[npc.type];
@@ -285,6 +257,25 @@ namespace Volcanit.Npcs
             Main.spriteBatch.Draw(texture, npc.Center - Main.screenPosition, new Rectangle?(), drawColor, npc.rotation, origin, npc.scale, SpriteEffects.None, 0);
             return false;
         }
+
+	public override float SpawnChance(NPCSpawnInfo spawnInfo) {
+			if(Main.hardMode) {
+			if(spawnInfo.player.ZoneJungle && NPC.downedGolemBoss && spawnInfo.spawnTileY > 600) {
+			return 0.1f;
+			} else {
+			return 0.0f;
+			}
+			} else {
+			return 0.0f;
+			}
+		}
+	public override void HitEffect(int hitDirection, double damage) {
+			if (npc.life <= 0) {
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BeetleGoreH1"), npc.scale);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BeetleGoreH2"), npc.scale);
+				Item.NewItem(npc.getRect(), ItemID.BeetleHusk, Main.rand.Next(2,3));
+			}
+		}
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
             scale = 1.9f;

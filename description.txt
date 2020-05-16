@@ -1,12 +1,34 @@
-Volcanit is a mod, which just adds stuff, if you are mildly bored, it's worth your time.
+Volcanit is a mod, which just adds stuff, if you are bored, it's probably worth your time.
+Minor Credits: Pyxis, Craftolizer, IDGCaptainRussia, Boristenboo
+
+Major things this mod adds: 5 Bosses, A new type of item known as Cards, little bits of miscellanious content throughout the game, 5 ores.
+
+2.5 Changelog:
++ Leviathan Axe
++ Boss Checklist support
++ Beetle Crusher, a new worm-type npc found in Post-Golem jungles
++ Sandstorm Katana, a new weapon made with Sand Scales
++ New calamitous items
++ A new boss, King Cloud.
++ 2 new guns
++ A new card
++ Blade of the Desert and Blade of the Tundra
+~ Fixed a bug with Calamitous Scythe
+~ New Icon
+~ Fixed spelling of Lihzahrdite
+~ Added animation to cursed magic projectile textures
+~ Made Blade of the Ocean waves take less time to despawn
+~ Fixed a bug with Sunken Treasure
+~ Blade of the Ocean, Jungle, Tundra, and Desert are less common now
 
 2.4 Changelog:
++ Calamitous, a new Alloy of Volcanite and Twilite
 + Sunken Treasure! A new piece of loot found in Hardmode Oceans!
 + Riptide, Nautilus Slicer, and Pickanch, found in Sunken Treasure.
 ~ Fixed a bug with Volcanic Mimic drops
 ~ Added gores to EoJ, upgraded functionality of Suspicious Looking Glasses
 ~ Changed cheese texture
-~ Changed gores of Dune Eater Gores
+~ Changed gores of Dune Eater
 
 2.3 Changelog:
 + Added a Fiaryite Hammer
@@ -19,6 +41,3 @@ Volcanit is a mod, which just adds stuff, if you are mildly bored, it's worth yo
 ~ Fixed Golden Halberd Wand
 ~ Changed some recipes
 ~ Upgraded Inferno Sword
-
-2.2.1 Changelog:
-+ Added recipe I forgot in 2.2

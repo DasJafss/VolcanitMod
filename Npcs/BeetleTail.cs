@@ -7,19 +7,19 @@ using Terraria.ModLoader;
  
 namespace Volcanit.Npcs
 {    
-    public class HellianeFleshling1Tail : ModNPC
+    public class BeetleTail : ModNPC
     {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Helliane Fleshling");
+		DisplayName.SetDefault("Beetle Crusher");
 	}
         public override void SetDefaults()
         {
-            npc.width = 62;
-            npc.height = 92;
-            npc.damage = 75;
-            npc.defense = 17;
-            npc.lifeMax = 9001;
+            npc.width = 32;
+            npc.height = 48;
+            npc.damage = 50;
+            npc.defense = 5;
+            npc.lifeMax = 1;
             npc.knockBackResist = 0.0f;
             npc.behindTiles = true;
             npc.noTileCollide = true;
@@ -31,8 +31,9 @@ namespace Volcanit.Npcs
         }
 	public override void HitEffect(int hitDirection, double damage) {
 			if (npc.life <= 0) {
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/HellianeFleshlingTail"), npc.scale);
-				VolcanitWorld.downedHelliane = true;
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BeetleGoreT1"), npc.scale);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BeetleGoreT2"), npc.scale);
+				Item.NewItem(npc.getRect(), ItemID.BeetleHusk, Main.rand.Next(2,3));
 			}
 		}
  
@@ -77,11 +78,6 @@ namespace Volcanit.Npcs
             Texture2D texture = Main.npcTexture[npc.type];
             Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
             Main.spriteBatch.Draw(texture, npc.Center - Main.screenPosition, new Rectangle?(), drawColor, npc.rotation, origin, npc.scale, SpriteEffects.None, 0);
-			if (Main.npc[(int)npc.ai[1]].life <= 9000)
-            {
-                spriteBatch.Draw(mod.GetTexture("Npcs/HellianeFleshling2Tail"), npc.Center - Main.screenPosition, new Rectangle?(), drawColor, npc.rotation, origin, npc.scale, SpriteEffects.None, 0);
-				npc.damage = 100;
-            }
             return false;
         }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

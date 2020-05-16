@@ -27,14 +27,88 @@ namespace Volcanit
 		public static bool planteraDead;
 		public static bool wofAlive;
 		public static bool wofDead;
+		public static bool downedNova;
+		public static bool downedEOJ;
+		public static bool downedHelliane;
+		public static bool downedSandtron;
+		public static bool downedCloud;
+		public static bool madeSunkenTreasure;
+
+		public override void Initialize() {
+			downedNova = false;
+			downedEOJ = false;
+			downedHelliane = false;
+			downedSandtron = false;
+			downedCloud = false;
+			madeSunkenTreasure = false;
+		}
+		public override TagCompound Save() {
+			var tags = new List<string>();
+			if (downedNova) {
+				tags.Add("nova");
+			}
+
+			if (downedCloud) {
+				tags.Add("nimboss");
+			}
+
+			if (downedEOJ) {
+				tags.Add("eoj");
+			}
+
+			if (downedHelliane) {
+				tags.Add("helliane");
+			}
+
+			if (downedSandtron) {
+				tags.Add("sandtron");
+			}
+			
+			if (madeSunkenTreasure) {
+				tags.Add("sunkentreasure");
+			}
+
+			return new TagCompound {
+				["tags"] = tags
+			};
+		}
+
+		public override void Load(TagCompound tag) {
+			var tags = tag.GetList<string>("tags");
+			downedNova = tags.Contains("nova");
+			downedEOJ = tags.Contains("eoj");
+			downedHelliane = tags.Contains("helliane");
+			downedSandtron = tags.Contains("sandtron");
+			downedCloud = tags.Contains("nimboss");
+			madeSunkenTreasure = tags.Contains("sunkentreasure");
+		}
+		public override void NetSend(BinaryWriter writer) {
+			var flags = new BitsByte();
+			flags[0] = downedNova;
+			flags[1] = downedEOJ;
+			flags[2] = downedHelliane;
+			flags[3] = downedSandtron;
+			flags[4] = madeSunkenTreasure;
+			flags[5] = downedCloud;
+			writer.Write(flags);
+		}
+		public override void NetReceive(BinaryReader reader) {
+			BitsByte flags = reader.ReadByte();
+			downedNova = flags[0];
+			downedEOJ = flags[1];
+			downedSandtron = flags[3];
+			downedHelliane = flags[2];
+			madeSunkenTreasure = flags[4];
+			downedCloud = flags[5];
+		}
 		public override void PostUpdate() {
-		if(!Main.hardMode) {
+		if(!Main.hardMode && !madeSunkenTreasure) {
 			wofAlive = true;
 		}
 		if(NPC.AnyNPCs(398)) {
 			moonlordAlive = true;
 		}
-		if(wofAlive && Main.hardMode) {
+		if(wofAlive && Main.hardMode && !madeSunkenTreasure) {
 			wofAlive = false;
 			wofDead = true;
 		}
@@ -64,7 +138,6 @@ namespace Volcanit
 						WorldGen.PlaceChest(64, ymodifier, Convert.ToUInt16(TileType<SunkenTreasureTile>()), false, 0);
 						landed = true;
 						Main.NewText("A treasure has sunken in the ocean!",0,0,255);
-						NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("A treasure has sunken in the ocean!"), Color.Blue);
 						for (int chestIndex = 0; chestIndex < 1000; chestIndex++) {
 				Chest chest = Main.chest[chestIndex];
 				int[] ItemForChest = new int[104] {74,78,82,17,79,83,91,92,108,107,264,327,355,517,554,696,697,698,709,712,715,744,741,743,855,864,955,1355,1522,1523,1524,1525,1526,1527,1704,1705,1710,1716,1720,1987,2133,2137,2143,2147,2155,2238,2294,2308,2336,2335,2334,2379,2389,2405,2630,2663,2843,2889,2890,2891,2892,2893,2894,2895,3070,3071,3072,3073,3074,3075,3076,3096,3183,3229,3230,3231,3232,3233,3510,3511,3512,3513,3514,3515,3516,3517,3518,3519,3520,3521,3480,3481,3482,3483,3484,3485,3564,3566,3643,3816,3885,3887,3904,3910};
@@ -159,13 +232,27 @@ namespace Volcanit
 			Main.NewText("The crystals are starting their new growth.",100,0,255);
 			planteraDead = false;
 		}
+		if(NPC.downedGolemBoss && Main.rand.Next(40000)==0){
+			int ymodifier = 0;
+			int xmodifier = Main.rand.Next(Main.maxTilesX);
+			bool landed = false;
+			for (ymodifier = 0; ymodifier < Main.maxTilesY - 1; ymodifier++) {
+						if(Main.tile[xmodifier, ymodifier + 1].active() && !landed) {
+						WorldGen.PlaceObject(xmodifier, ymodifier, TileType<SpecialCloud>(), false, 0);
+						landed = true;
+						Main.NewText("A cloud has fallen!",200,200,200);
+			}
+		}
+		}
 		}
 		public override void PostWorldGen() {
 			int toAdd = ModContent.ItemType<Items.SwordOfTheOcean>();
 			int toAdd2 = ModContent.ItemType<Items.SwordOfTheJungle>();
+			int toAdd3 = ModContent.ItemType<Items.SwordOfTheTundra>();
+			int toAdd4 = ModContent.ItemType<Items.SwordOfTheDesert>();
 			for (int chestIndex = 0; chestIndex < 1000; chestIndex++) {
 				Chest chest = Main.chest[chestIndex];
-				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 17 * 36) {
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 17 * 36 && Main.rand.Next(3)==0) {
 					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
 						if (chest.item[inventoryIndex].type == 0) {
 							chest.item[inventoryIndex].SetDefaults(toAdd);
@@ -173,10 +260,26 @@ namespace Volcanit
 						}
 					}
 				}
-				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 10 * 36) {
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 10 * 36 && Main.rand.Next(3)==0) {
 					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
 						if (chest.item[inventoryIndex].type == 0) {
 							chest.item[inventoryIndex].SetDefaults(toAdd2);
+							break;
+						}
+					}
+				}
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 11 * 36 && Main.rand.Next(3)==0) {
+					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
+						if (chest.item[inventoryIndex].type == 0) {
+							chest.item[inventoryIndex].SetDefaults(toAdd3);
+							break;
+						}
+					}
+				}
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 1 * 36 && Main.rand.Next(3)==0) {
+					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
+						if (chest.item[inventoryIndex].type == 0 && Main.tile[chest.x, chest.y].wall == 187) {
+							chest.item[inventoryIndex].SetDefaults(toAdd4);
 							break;
 						}
 					}
