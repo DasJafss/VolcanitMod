@@ -1,7 +1,7 @@
 Volcanit is a mod, which just adds stuff, if you are bored, it's probably worth your time.
-Minor Credits: Pyxis, Craftolizer, IDGCaptainRussia
+Minor Credits: Pyxis, Craftolizer, IDGCaptainRussia, Boristenboo
 
-Major Additions: 5 Bosses, A new type of item known as Cards, little bits of miscellanious content throughout the game, 5 ores.
+Major things this mod adds: 5 Bosses, A new type of item known as Cards, little bits of miscellanious content throughout the game, 5 ores.
 
 2.5 Changelog:
 + Leviathan Axe
