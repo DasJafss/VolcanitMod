@@ -3,6 +3,9 @@ Minor Credits: Pyxis, Craftolizer, IDGCaptainRussia, Boristenboo
 
 Major things this mod adds: 5 Bosses, A new type of item known as Cards, little bits of miscellanious content throughout the game, 5 ores.
 
+2.5.1 Changelog:
+~ Updated to new tmodloader
+
 2.5 Changelog:
 + Leviathan Axe
 + Boss Checklist support
