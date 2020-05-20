@@ -10,45 +10,6 @@ namespace Volcanit.Npcs
 {
 	internal class SandWorm : ModNPC
 	{
-		public override bool Autoload(ref string name) {
-			IL.Terraria.Wiring.HitWireSingle += HookStatue;
-			return base.Autoload(ref name);
-		}
-
-		private void HookStatue(ILContext il) {
-			var c = new ILCursor(il);
-
-
-			ILLabel[] targets = null;
-			while (c.TryGotoNext(i => i.MatchSwitch(out targets))) {
-				int offset = 0;
-				if (c.Prev.MatchSub() && c.Prev.Previous.MatchLdcI4(out offset)) {
-					;
-				}
-				// not enough switch instructions
-				if (targets.Length < 56 - offset) {
-					continue;
-				}
-				var target = targets[56 - offset];
-				if (target == null) {
-					continue;
-				}
-				// move the cursor to case 56:
-				c.GotoLabel(target);
-				c.GotoNext(i => i.MatchCall(typeof(Utils), nameof(Utils.SelectRandom)));
-				c.EmitDelegate<Func<short[], short[]>>(arr => {
-					Array.Resize(ref arr, arr.Length+1);
-					arr[arr.Length-1] = (short)npc.type;
-					return arr;
-				});
-
-				// hook applied successfully
-				return;
-			}
-
-			// couldn't find the right place to insert
-			throw new Exception("Hook location not found, switch(*) { case 56: ...");
-		}
 
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Sand Worm");
