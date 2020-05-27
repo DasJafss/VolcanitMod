@@ -77,13 +77,13 @@ namespace Volcanit
 					10.5f,
 					ModContent.NPCType<Npcs.Nimboss>(),
 					this,
-					"King Cloud",
+					"Nimboss",
 					(Func<bool>)(() => VolcanitWorld.downedCloud),
 					0,
 					0,
 					ModContent.ItemType<Items.NimbossScepter>(),
 					"Break a Suspicious Cloud, which fall randomly after Golem is defeated.",
-					"King Cloud is flying out!",
+					"Nimboss is flying out!",
 					"Volcanit/Npcs/Nimboss",
 					"Volcanit/Npcs/Nimboss_Head_Boss");
 			}
