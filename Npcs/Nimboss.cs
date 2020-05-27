@@ -13,7 +13,7 @@ namespace Volcanit.Npcs
 	{
 		public override void SetStaticDefaults()
 		{
-		DisplayName.SetDefault("King Cloud");
+		DisplayName.SetDefault("Nimboss");
 		}
 		public override void SetDefaults()
 		{
@@ -57,11 +57,17 @@ namespace Volcanit.Npcs
 				NPCVX=0f;
 				NPCVY=0f;
 			}
-			npc.velocity = new Vector2(NPCVX,NPCVY);
+			npc.velocity += new Vector2(NPCVX, NPCVY) * 0.075f;
+            npc.velocity *= 0.95f;
+            if (npc.velocity.Length() > new Vector2(NPCVX, NPCVY).Length())
+            {
+                npc.velocity.Normalize();
+                npc.velocity *= new Vector2(NPCVX, NPCVY).Length();
+            }
 			if(npc.ai[0]==0 || npc.ai[0]==5) {
-				NPCVX=0f;
-				NPCVY=0f;
 				npc.damage = 60;
+				NPCVX = 0f;
+				NPCVY = 0f;
 				if (oldPlayerPos.X < npc.position.X) {
 					NPCVX=-8f;
 				}
