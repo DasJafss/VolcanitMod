@@ -31,7 +31,7 @@ namespace Volcanit.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 			NPC.NewNPC(i * 16, j * 16 - 1024, ModContent.NPCType<Npcs.Nimboss>(), 0);
-			Main.NewText("King Cloud has awoken!",171,64,255);
+			Main.NewText("Nimboss has awoken!",171,64,255);
 		}
 	}
 }
