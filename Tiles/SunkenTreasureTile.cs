@@ -44,7 +44,7 @@ namespace Volcanit.Tiles
 		public override bool HasSmartInteract() => true;
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-			Item.NewItem(i * 16, j * 16, 32, 32, ItemType<Items.SunkenTreasure>());
+			Item.NewItem(i * 16, j * 16, 32, 32, ItemType<Items.TileItems.SunkenTreasure>());
 			Chest.DestroyChest(i, j);
 		}
 
@@ -116,11 +116,11 @@ namespace Volcanit.Tiles
 			else {
 				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "";
 				if (player.showItemIconText == "Sunken Treasure") {
-					player.showItemIcon2 = ItemType<Items.SunkenTreasure>();
+					player.showItemIcon2 = ItemType<Items.TileItems.SunkenTreasure>();
 				}
 			}
 			player.noThrow = 2;
-			player.showItemIcon2 = ItemType<Items.SunkenTreasure>();
+			player.showItemIcon2 = ItemType<Items.TileItems.SunkenTreasure>();
 			player.showItemIcon = true;
 		}
 	}

@@ -129,11 +129,11 @@ namespace Volcanit.Npcs
 		{
 		potionType = ItemID.HealingPotion;
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.SightOfJafss>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Yoyos.SightOfJafss>());
 		if (Main.rand.Next(2) == 0)
 			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Armor.MaskOfJafss>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.HeroSword>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.HeroSword>());
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{

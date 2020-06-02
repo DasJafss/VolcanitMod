@@ -94,12 +94,12 @@ public override void BossLoot(ref string name, ref int potionType)
 		{
 		potionType = ItemID.HealingPotion;
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.StarshadeSlicer>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.StarshadeSlicer>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.PainStarDX>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.PainStarDX>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Starshot>());
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.StarShard>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Magic.Starshot>());
+		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.StarShard>());
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{

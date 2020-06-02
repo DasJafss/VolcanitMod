@@ -37,7 +37,7 @@ namespace Volcanit.Npcs
 		{
 		potionType = ItemID.HealingPotion;
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.NimbossScepter>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Magic.NimbossScepter>());
 			VolcanitWorld.downedCloud = true;
 		}
 		float NPCVX = 0f;
