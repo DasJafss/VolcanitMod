@@ -36,7 +36,7 @@ namespace Volcanit.Items.Weapons.Throwables
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FragmentVortex, 20);
 			recipe.AddIngredient(ItemID.IceBlock, 150);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
