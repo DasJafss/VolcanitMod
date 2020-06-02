@@ -19,10 +19,9 @@ namespace Volcanit.Projectiles
           return true;
         }
  
-        // Amethyst Hook is 300, Static Hook is 600
         public override float GrappleRange()
         {
-            return 450f;       //this is the grappling hook range
+            return 450f;
         }
 
         public override void GrappleRetreatSpeed(Player player, ref float speed)

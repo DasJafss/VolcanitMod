@@ -7,10 +7,10 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Volcanit.Projectiles
 {
-	public class SandstormJavelinProjectile : ModProjectile
+	public class CalamitousKnive : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sandstorm Javelin");
+			DisplayName.SetDefault("Calamitous Knife");
 			Main.projFrames[projectile.type] = 1;
 		}
 
@@ -21,7 +21,7 @@ namespace Volcanit.Projectiles
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
 			if(Main.rand.Next(2)==0) {
-				Item.NewItem(projectile.position, 32, 32, ItemType<Items.Weapons.Throwables.SandstormJavelin>());
+				Item.NewItem(projectile.position, 32, 32, ItemType<Items.Weapons.Throwables.CalamitousKnife>());
 			}
 			return true;
 		}

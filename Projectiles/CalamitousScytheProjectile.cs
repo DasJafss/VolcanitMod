@@ -24,8 +24,6 @@ namespace Volcanit.Projectiles
 			projectile.tileCollide = false;
 			projectile.friendly = true;
 		}
-
-		int timer = 0;
 		public override void AI() {
 			Player projOwner = Main.player[projectile.owner];
 			Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
@@ -33,11 +31,7 @@ namespace Volcanit.Projectiles
 			projOwner.itemTime = projOwner.itemAnimation;
 			projectile.position.X = ownerMountedCenter.X - (float)(projectile.width / 2);
 			projectile.position.Y = ownerMountedCenter.Y - (float)(projectile.height / 2);
-			timer += 1;
-			if (timer > 2) {
-				projectile.rotation += 1;
-				timer = 0;
-			}
+			projectile.rotation += 0.3f;
 			if (projOwner.itemAnimation == 0) {
 				projectile.Kill();
 			}
