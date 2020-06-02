@@ -45,11 +45,11 @@ namespace Volcanit.Npcs
 		if (Main.rand.Next(2) == 0)
 			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Armor.SandtronMask>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.EnchantedKnives>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Throwables.EnchantedKnives>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.EnchantedKatana>());
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.SleepPowder>(), Main.rand.Next(30, 35));
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.SandScale>(), Main.rand.Next(10, 15));
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.EnchantedKatana>());
+		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.SleepPowder>(), Main.rand.Next(30, 35));
+		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.SandScale>(), Main.rand.Next(10, 15));
 		}
  	public override void HitEffect(int hitDirection, double damage) {
 			if (npc.life <= 0) {

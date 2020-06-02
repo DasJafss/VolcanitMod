@@ -43,15 +43,15 @@ namespace Volcanit.Npcs
 		public override void BossLoot(ref string name, ref int potionType)
 		{
 		potionType = ItemID.HealingPotion;
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.SoulOfHeat>(), 100);
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.LavacaHeart>(), Main.rand.Next(2));
+		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.SoulOfHeat>(), 100);
+		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.Hearts.LavacaHeart>(), Main.rand.Next(2));
 		if (Main.rand.Next(2) == 0)
 			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Armor.HellianeFleshlingMask>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.MagmazineSaber>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.MagmazineSaber>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.MagmaticClinger>());
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.HellianeDisk>(), Main.rand.Next(3, 5));
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.MagmaticClinger>());
+		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Throwables.HellianeDisk>(), Main.rand.Next(3, 5));
 		}
  
         public override bool PreAI()

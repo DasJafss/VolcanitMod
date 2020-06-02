@@ -36,10 +36,10 @@ namespace Volcanit.Npcs
 		public override void HitEffect(int hitDirection, double damage) {
 			if (npc.life <= 0) {
 				if (Main.rand.Next(2) == 0)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.HeartSeekerEdge>());
+					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.HeartSeekerEdge>());
 				if (Main.rand.Next(2) == 0)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.DragonicChainblade>());
-				Item.NewItem(npc.getRect(), ModContent.ItemType<Items.VolcanishBrew>(), Main.rand.Next(3, 10));
+					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.DragonicChainblade>());
+				Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.Potions.VolcanishBrew>(), Main.rand.Next(3, 10));
 			}
 		}
 	}
