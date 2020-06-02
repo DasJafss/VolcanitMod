@@ -1,9 +1,7 @@
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Volcanit.Items.Weapons.Meele
+namespace Volcanit.Items.Weapons.Melee
 {
 	public class SharpStick : ModItem
 	{

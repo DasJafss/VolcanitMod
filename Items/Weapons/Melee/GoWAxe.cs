@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 //Special Thanks to IDGCaptainRussia
 
-namespace Volcanit.Items.Weapons.Meele
+namespace Volcanit.Items.Weapons.Melee
 {
 	class LeviathanAxe : ModItem
 	{
@@ -128,7 +128,7 @@ namespace Volcanit.Items.Weapons.Meele
 
 		public override string Texture
 		{
-			get { return ("Volcanit/Items/Weapons/Meele/LeviathanAxe"); }
+			get { return ("Volcanit/Items/Weapons/Melee/LeviathanAxe"); }
 		}
 
 		public override void AI()
@@ -214,7 +214,7 @@ namespace Volcanit.Items.Weapons.Meele
 
 		public override bool Autoload(ref string name, ref string texture)
 		{
-			texture = "Volcanit/Items/Weapons/Meele/LeviathanAxe";
+			texture = "Volcanit/Items/Weapons/Melee/LeviathanAxe";
 			return true;
 		}
 		public override void SetDefaults()

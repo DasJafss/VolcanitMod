@@ -1,9 +1,8 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Volcanit.Projectiles;
 
-namespace Volcanit.Items.Weapons.Meele
+namespace Volcanit.Items.Weapons.Melee
 {
 	public class SwordOfTheTundra : ModItem
 	{
