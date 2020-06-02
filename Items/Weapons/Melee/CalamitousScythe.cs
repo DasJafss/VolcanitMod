@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Volcanit.Items.Weapons.Meele
+namespace Volcanit.Items.Weapons.Melee
 {
 	public class CalamitousScythe : ModItem
 	{
