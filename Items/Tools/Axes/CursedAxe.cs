@@ -33,7 +33,7 @@ namespace Volcanit.Items.Tools.Axes
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "CursedBar", 21);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

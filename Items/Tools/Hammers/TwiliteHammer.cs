@@ -33,7 +33,7 @@ namespace Volcanit.Items.Tools.Hammers
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "TwiliteBar", 20);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
