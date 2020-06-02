@@ -35,7 +35,7 @@ namespace Volcanit.Items.Weapons.Meele
 			recipe.AddIngredient(ItemID.ButchersChainsaw, 1);
 			recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
 			recipe.AddIngredient(ItemID.BreakerBlade, 1);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -35,7 +35,7 @@ namespace Volcanit.Items.Weapons.Meele
 			recipe.AddIngredient(ItemID.FieryGreatsword, 1);
 			recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
 			recipe.AddIngredient(ItemID.TheHorsemansBlade, 1);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

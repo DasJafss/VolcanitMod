@@ -80,7 +80,7 @@ namespace Volcanit.Items.Weapons.Meele
 			recipe.AddIngredient(ItemID.IceBlock, 500);
 			recipe.AddIngredient(ItemID.FrostCore, 5);
 			recipe.AddIngredient(3460, 1);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
