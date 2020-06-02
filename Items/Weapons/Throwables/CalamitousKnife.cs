@@ -36,6 +36,7 @@ namespace Volcanit.Items.Weapons.Throwables
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "CalamitousBar", 2);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this, 30);
 			recipe.AddRecipe();
 		}
