@@ -2,11 +2,20 @@ using Terraria.ModLoader;
 using System;
 using Terraria;
 using System.Collections.Generic;
-using System.IO;
 using Terraria.UI;
 using Microsoft.Xna.Framework.Graphics;
 using System.Reflection;
 using Microsoft.Xna.Framework;
+using Volcanit.Items.Consumables.Summoning;
+using Volcanit.Items.Armor;
+using Volcanit.Items.Materials;
+using Volcanit.Items.Equipables;
+using Volcanit.Items.Weapons.Yoyos;
+using Volcanit.Items.Weapons.Throwables;
+using Volcanit.Items.Weapons.Melee;
+using Volcanit.Items.Consumables;
+using Volcanit.Items.Consumables.Hearts;
+using Volcanit.Items.Weapons.Magic;
 
 namespace Volcanit
 {
@@ -34,10 +43,10 @@ namespace Volcanit
 					this,
 					"Nova",
 					(Func<bool>)(() => VolcanitWorld.downedNova),
-					ModContent.ItemType<Items.Consumables.Summoning.SuspiciousLookingTelescope>(),
+					ModContent.ItemType<SuspiciousLookingTelescope>(),
 					0,
-					new List<int> {ModContent.ItemType<Items.Weapons.Meele.StarshadeSlicer>(), ModContent.ItemType<Items.Weapons.Meele.PainStarDX>(), ModContent.ItemType<Items.Consumables.StarShard>(), ModContent.ItemType<Items.Weapons.Magic.Starshot>()},
-					"Buy [i:" + ModContent.ItemType<Items.Consumables.Summoning.SuspiciousLookingTelescope>() + "] from the Mechanic and use it.",
+					new List<int> {ModContent.ItemType<StarshadeSlicer>(), ModContent.ItemType<PainStarDX>(), ModContent.ItemType<StarShard>(), ModContent.ItemType<Starshot>()},
+					"Buy [i:" + ModContent.ItemType<SuspiciousLookingTelescope>() + "] from the Mechanic and use it.",
 					"Nova is falling out!",
 					"Volcanit/Npcs/Nova",
 					"Volcanit/Npcs/Nova_Head_Boss");
@@ -48,10 +57,10 @@ namespace Volcanit
 					this,
 					"Eye of Jafss",
 					(Func<bool>)(() => VolcanitWorld.downedEOJ),
-					ModContent.ItemType<Items.Equipables.SuspiciousLookingGlasses>(),
-					ModContent.ItemType<Items.Armor.MaskOfJafss>(),
-					new List<int> {ModContent.ItemType<Items.Weapons.Yoyos.SightOfJafss>(), ModContent.ItemType<Items.Materials.HeroSword>()},
-					"Craft [i:" + ModContent.ItemType<Items.Equipables.SuspiciousLookingGlasses>() + "] and use it.",
+					ModContent.ItemType<SuspiciousLookingGlasses>(),
+					ModContent.ItemType<MaskOfJafss>(),
+					new List<int> {ModContent.ItemType<SightOfJafss>(), ModContent.ItemType<HeroSword>()},
+					"Craft [i:" + ModContent.ItemType<SuspiciousLookingGlasses>() + "] and use it.",
 					"All have lost sight of the Eye of Jafss!",
 					"Volcanit/Npcs/EyeOfJafss",
 					"Volcanit/Npcs/EyeOfJafss_Head_Boss");
@@ -62,10 +71,10 @@ namespace Volcanit
 					this,
 					"Helliane Fleshling",
 					(Func<bool>)(() => VolcanitWorld.downedHelliane),
-					ModContent.ItemType<Items.Consumables.Summoning.HeatMeat>(),
-					ModContent.ItemType<Items.Armor.HellianeFleshlingMask>(),
-					new List<int> {ModContent.ItemType<Items.Materials.SoulOfHeat>(), ModContent.ItemType<Items.Consumables.Hearts.LavacaHeart>(), ModContent.ItemType<Items.Consumables.StarShard>(), ModContent.ItemType<Items.Weapons.Meele.MagmazineSaber>(), ModContent.ItemType<Items.Weapons.Meele.MagmaticClinger>(), ModContent.ItemType<Items.Weapons.Throwables.HellianeDisk>()},
-					"Craft [i:" + ModContent.ItemType<Items.Consumables.Summoning.HeatMeat>() + "] and use it.",
+					ModContent.ItemType<HeatMeat>(),
+					ModContent.ItemType<HellianeFleshlingMask>(),
+					new List<int> {ModContent.ItemType<SoulOfHeat>(), ModContent.ItemType<LavacaHeart>(), ModContent.ItemType<StarShard>(), ModContent.ItemType<MagmazineSaber>(), ModContent.ItemType<MagmaticClinger>(), ModContent.ItemType<HellianeDisk>()},
+					"Craft [i:" + ModContent.ItemType<HeatMeat>() + "] and use it.",
 					"The Helliane Fleshing got bored and left!",
 					"Volcanit/Npcs/HellianeFleshling_Checklist",
 					"Volcanit/Npcs/HellianeFleshling_Head_Boss");
@@ -77,8 +86,8 @@ namespace Volcanit
 					"Dune Eater",
 					(Func<bool>)(() => VolcanitWorld.downedSandtron),
 					ModContent.ItemType<Npcs.SandWormItem>(),
-					ModContent.ItemType<Items.Armor.SandtronMask>(),
-					new List<int> {ModContent.ItemType<Items.Materials.SandScale>(), ModContent.ItemType<Items.Weapons.Throwables.EnchantedKnives>(), ModContent.ItemType<Items.Weapons.Meele.EnchantedKatana>(), ModContent.ItemType<Items.Consumables.SleepPowder>()},
+					ModContent.ItemType<SandtronMask>(),
+					new List<int> {ModContent.ItemType<SandScale>(), ModContent.ItemType<EnchantedKnives>(), ModContent.ItemType<EnchantedKatana>(), ModContent.ItemType<SleepPowder>()},
 					"Catch [i:" + ModContent.ItemType<Npcs.SandWormItem>() + "] during a Hardmode sandstorm and use it.",
 					"Dune Eater has eaten the sand!",
 					"Volcanit/Npcs/Sandtron_Checklist",
@@ -92,7 +101,7 @@ namespace Volcanit
 					(Func<bool>)(() => VolcanitWorld.downedCloud),
 					0,
 					0,
-					ModContent.ItemType<Items.Weapons.Magic.NimbossScepter>(),
+					ModContent.ItemType<NimbossScepter>(),
 					"Break a Suspicious Cloud, which fall randomly after Golem is defeated.",
 					"Nimboss is flying out!",
 					"Volcanit/Npcs/Nimboss",

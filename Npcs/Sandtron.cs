@@ -1,14 +1,15 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
- 
+using Volcanit.Items.Weapons.Melee;
+using Volcanit.Items.Weapons.Throwables;
+using Volcanit.Items.Consumables;
+using Volcanit.Items.Armor;
+using Volcanit.Items.Materials;
+
 namespace Volcanit.Npcs
 {
 	[AutoloadBossHead]
@@ -43,13 +44,13 @@ namespace Volcanit.Npcs
 		{
 		potionType = ItemID.HealingPotion;
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Armor.SandtronMask>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<SandtronMask>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Throwables.EnchantedKnives>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<EnchantedKnives>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.EnchantedKatana>());
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.SleepPowder>(), Main.rand.Next(30, 35));
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.SandScale>(), Main.rand.Next(10, 15));
+			Item.NewItem(npc.getRect(), ModContent.ItemType<EnchantedKatana>());
+		Item.NewItem(npc.getRect(), ModContent.ItemType<SleepPowder>(), Main.rand.Next(30, 35));
+		Item.NewItem(npc.getRect(), ModContent.ItemType<SandScale>(), Main.rand.Next(10, 15));
 		}
  	public override void HitEffect(int hitDirection, double damage) {
 			if (npc.life <= 0) {

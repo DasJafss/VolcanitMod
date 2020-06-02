@@ -1,10 +1,8 @@
-using System;
-using System.IO;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Volcanit.Items.Weapons.Melee;
+using Volcanit.Items.Weapons.Magic;
 
 namespace Volcanit.Npcs
 {
@@ -94,11 +92,11 @@ public override void BossLoot(ref string name, ref int potionType)
 		{
 		potionType = ItemID.HealingPotion;
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.StarshadeSlicer>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<StarshadeSlicer>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.PainStarDX>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<PainStarDX>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Magic.Starshot>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<Starshot>());
 		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.StarShard>());
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
