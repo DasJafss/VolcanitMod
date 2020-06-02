@@ -1,14 +1,15 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
- 
+using Volcanit.Items.Weapons.Melee;
+using Volcanit.Items.Weapons.Throwables;
+using Volcanit.Items.Consumables.Hearts;
+using Volcanit.Items.Materials;
+using Volcanit.Items.Armor;
+
 namespace Volcanit.Npcs
 {
 	[AutoloadBossHead]
@@ -43,15 +44,15 @@ namespace Volcanit.Npcs
 		public override void BossLoot(ref string name, ref int potionType)
 		{
 		potionType = ItemID.HealingPotion;
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.SoulOfHeat>(), 100);
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.Hearts.LavacaHeart>(), Main.rand.Next(2));
+		Item.NewItem(npc.getRect(), ModContent.ItemType<SoulOfHeat>(), 100);
+		Item.NewItem(npc.getRect(), ModContent.ItemType<LavacaHeart>(), Main.rand.Next(2));
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Armor.HellianeFleshlingMask>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<HellianeFleshlingMask>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.MagmazineSaber>());
+			Item.NewItem(npc.getRect(), ModContent.ItemType<MagmazineSaber>());
 		if (Main.rand.Next(2) == 0)
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.MagmaticClinger>());
-		Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Throwables.HellianeDisk>(), Main.rand.Next(3, 5));
+			Item.NewItem(npc.getRect(), ModContent.ItemType<MagmaticClinger>());
+		Item.NewItem(npc.getRect(), ModContent.ItemType<HellianeDisk>(), Main.rand.Next(3, 5));
 		}
  
         public override bool PreAI()

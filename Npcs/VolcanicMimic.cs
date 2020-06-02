@@ -1,11 +1,8 @@
-using System;
-using System.IO;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Volcanit.Projectiles;
+using Volcanit.Items.Weapons.Melee;
+using Volcanit.Items.Consumables.Potions;
 
 namespace Volcanit.Npcs
 {
@@ -36,10 +33,10 @@ namespace Volcanit.Npcs
 		public override void HitEffect(int hitDirection, double damage) {
 			if (npc.life <= 0) {
 				if (Main.rand.Next(2) == 0)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.HeartSeekerEdge>());
+					Item.NewItem(npc.getRect(), ModContent.ItemType<HeartSeekerEdge>());
 				if (Main.rand.Next(2) == 0)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Weapons.Meele.DragonicChainblade>());
-				Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Consumables.Potions.VolcanishBrew>(), Main.rand.Next(3, 10));
+					Item.NewItem(npc.getRect(), ModContent.ItemType<DragonicChainblade>());
+				Item.NewItem(npc.getRect(), ModContent.ItemType<VolcanishBrew>(), Main.rand.Next(3, 10));
 			}
 		}
 	}
