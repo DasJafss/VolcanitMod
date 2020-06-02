@@ -36,7 +36,7 @@ namespace Volcanit.Items.Tools.Pickaxes
 			recipe.AddIngredient(ItemID.MoltenPickaxe, 1);
 			recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
 			recipe.AddIngredient(ItemID.Picksaw, 1);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -31,7 +31,7 @@ namespace Volcanit.Items.Weapons.Summoning
 			recipe.AddIngredient(ItemID.BoneKey, 1);
 			recipe.AddIngredient(ItemID.HallowedBar, 10);
 			recipe.AddIngredient(null, "SoulOfHeat", 10);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
