@@ -42,7 +42,7 @@ namespace Volcanit.Items.Weapons.Yoyos
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "SandScale", 15);
 			recipe.AddIngredient(ItemID.SpectreBar, 12);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

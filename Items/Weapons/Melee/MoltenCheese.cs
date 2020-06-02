@@ -34,7 +34,7 @@ namespace Volcanit.Items.Weapons.Meele
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "Cheese", 3);
 			recipe.AddIngredient(ItemID.FragmentSolar, 5);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

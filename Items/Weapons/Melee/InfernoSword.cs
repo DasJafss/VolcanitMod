@@ -36,7 +36,7 @@ namespace Volcanit.Items.Weapons.Meele
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "Fieroblade", 1);
 			recipe.AddIngredient(null, "HeroSword", 1);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(null, "VolcanitAnvils");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
