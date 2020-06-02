@@ -29,7 +29,7 @@ namespace Volcanit.Items.Weapons.Throwables
 			item.autoReuse = true;
 			item.UseSound = SoundID.Item1;
 			item.maxStack = 999;
-			item.rare = 8;
+			item.rare = 12;
 			item.shoot = ModContent.ProjectileType<CalamitousKnive>();
 		}
 		public override void AddRecipes() 
